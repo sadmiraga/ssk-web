@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [App\Http\Controllers\GuestController::class, 'index'])->name('index');
 
 Route::get('/dogodki', [App\Http\Controllers\EventsController::class, 'index'])->name('events.index');
 Route::get('/dodaj-dogodek', [App\Http\Controllers\EventsController::class, 'create'])->name('events.create');
+Route::post('/dodaj-dogodek-exe', [App\Http\Controllers\EventsController::class, 'store'])->name('events.store');
+
+Route::get('/forme', [App\Http\Controllers\EventsController::class, 'index'])->name('events.index');
+Route::get('/dodaj-formo', [App\Http\Controllers\EventsController::class, 'create'])->name('events.create');
 
 
 Auth::routes();
