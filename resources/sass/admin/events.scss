@@ -26,33 +26,63 @@
     justify-content: flex-end;
 }
 
-
-#map_container {
-    background:lightgray;
-    height: 100vh;
+.event-card-image{
+    height: 19vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius:10px;
 }
 
-    .right_box {
-    -webkit-box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.75);
-    box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.75);
-    }
 
-    .card {
-    border-radius: 0 !important;
-    border: 0 none;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
-    margin-left: 1px;
-    margin-right: 1px;
-    }
+.custom-button{
+    width:45%;
+    border-radius:5px;
+    border:1px solid #FFD900;
+    color: #FFD900;
+}
 
-    .card-img-top {
-    width: 100%;
-    border-radius: 0 !important;
-    }
+.custom-button:hover{
+    background-color:#FFD900;
+    color:black;
+}
 
-    .card-columns {
-    padding-top: 15px;
-    }
+.button-row{
+    margin-left: 0px;
+    margin-right: 0px;
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    margin-bottom: 1vh;
+}
+
+.event-card{
+    background: black;
+    border-radius: 10px;
+}
+
+.admin-event-title{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.admin-event-description{
+    color: white;
+    font-weight: 100;
+    text-align: center;
+}
+
+.add-button{
+    background: black;
+    color: #FFD900;
+    display: flex;
+    justify-content: space-around;
+    width: 10rem;
+    align-items: baseline;
+}
+
+.add-button:hover{
+    color: #FFD900 !important;
+}

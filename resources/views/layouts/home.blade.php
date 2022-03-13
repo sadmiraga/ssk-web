@@ -85,7 +85,7 @@
 
 
                         <li class="sidebar-menu-item">
-                            <a href="/zaposleni">
+                            <a href="/forme">
                                 <i class="far fa-file-alt"></i>
                                 <span class="sidebar-menu-item-text">Forme</span>
 

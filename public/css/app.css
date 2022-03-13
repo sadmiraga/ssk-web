@@ -11544,28 +11544,118 @@ body {
   justify-content: flex-end;
 }
 
-#map_container {
-  background: lightgray;
-  height: 100vh;
+.event-card-image {
+  height: 19vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
 }
 
-.right_box {
-  box-shadow: -2px 0px 2px 0px rgba(0, 0, 0, 0.75);
+.custom-button {
+  width: 45%;
+  border-radius: 5px;
+  border: 1px solid #FFD900;
+  color: #FFD900;
 }
 
-.card {
-  border-radius: 0 !important;
-  border: 0 none;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
-  margin-left: 1px;
-  margin-right: 1px;
+.custom-button:hover {
+  background-color: #FFD900;
+  color: black;
 }
 
-.card-img-top {
-  width: 100%;
-  border-radius: 0 !important;
+.button-row {
+  margin-left: 0px;
+  margin-right: 0px;
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-between;
+  margin-bottom: 1vh;
 }
 
-.card-columns {
-  padding-top: 15px;
+.event-card {
+  background: black;
+  border-radius: 10px;
+}
+
+.admin-event-title {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.admin-event-description {
+  color: white;
+  font-weight: 100;
+  text-align: center;
+}
+
+.add-button {
+  background: black;
+  color: #FFD900;
+  display: flex;
+  justify-content: space-around;
+  width: 10rem;
+  align-items: baseline;
+}
+
+.add-button:hover {
+  color: #FFD900 !important;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  width: 10%;
+}
+
+.form-row input {
+  width: 90% !important;
+}
+
+.card-action-button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@media (max-width: 576px) {
+  .xs {
+    color: red;
+    font-weight: bold;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .sm {
+    color: red;
+    font-weight: bold;
+  }
+}
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width: 992px) {
+  .md {
+    color: red;
+    font-weight: bold;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .lg {
+    color: red;
+    font-weight: bold;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .xl {
+    color: red;
+    font-weight: bold;
+  }
 }
