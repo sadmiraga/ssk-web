@@ -11362,10 +11362,12 @@ body {
 
 .sidebar ul li a.active,
 .sidebar ul li a:hover {
-  border-radius: 10px;
-  background: transparent;
-  border-bottom: 1px solid #FFD900;
-  margin-left: 3px;
+  border-bottom: 1px solid white;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a {
+  border-bottom: 1px solid black;
 }
 
 .sidebar ul li span {
@@ -11503,8 +11505,9 @@ body {
   }
 }
 .sidebar-menu-item-text {
-  color: #FFD900;
+  color: white;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .sidebar-menu-item-icon {
@@ -11515,6 +11518,12 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 7s linear;
+}
+
+.sidebar-img-icon {
+  background-color: white;
+  filter: invert(100%);
+  height: 5vh;
 }
 
 .add-new-event {
@@ -11568,7 +11577,6 @@ body {
   margin-left: 0px;
   margin-right: 0px;
   display: flex;
-  border: 1px solid black;
   justify-content: space-between;
   margin-bottom: 1vh;
 }
@@ -11611,14 +11619,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.form-row label {
-  width: 10%;
-}
-
-.form-row input {
-  width: 90% !important;
-}
-
 .card-action-button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -11658,4 +11658,81 @@ body {
     color: red;
     font-weight: bold;
   }
+}
+.form-button-row {
+  margin-left: 0px;
+  margin-right: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1vh;
+  margin-top: 5vh;
+}
+
+.public-navbar {
+  width: 100%;
+  background-color: black;
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.public-logo {
+  width: 7rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.event-image {
+  height: 25vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.event-heading {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.prijava-button {
+  color: #FECC1B;
+  font-weight: 600;
+  letter-spacing: 3px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 5px !important;
+  padding-bottom: 0px !important;
+}
+
+.prijava-button:hover {
+  background-color: #FECC1B !important;
+  color: black !important;
+  cursor: pointer;
+}
+
+.apply-cover-image {
+  height: 25vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.event-apply-input {
+  background: transparent;
+  color: white;
+}
+
+.event-apply-input:focus {
+  color: white;
+  background: transparent;
+  border-color: #FFD900;
+  box-shadow: none;
 }

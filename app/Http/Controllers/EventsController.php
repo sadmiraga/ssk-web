@@ -6,20 +6,26 @@ use Illuminate\Http\Request;
 use Laravel\Ui\Presets\React;
 
 use App\Models\Event;
+use App\Models\Form;
+use App\Models\Application;
 
 class EventsController extends Controller
 {
+
+    //INDEX
     public function index()
     {
         $events = Event::orderBy('date', 'desc')->get();
         return view('admin.events.index', compact('events'));
     }
 
+    //CREATE
     public function create()
     {
         return view('admin.events.create');
     }
 
+    //CREATE - STORE
     public function store(Request $request)
     {
         $request->validate([
@@ -56,6 +62,56 @@ class EventsController extends Controller
 
         $event->save();
 
-        return redirect('/dogodki')->with('successMessage', 'Uspesno ste dodali dogodek');
+        return redirect("/doloci-formo/$event->id")->with('successMessage', 'Uspesno ste dodali dogodek');
+    }
+
+    public function delete($eventID)
+    {
+        $event = Event::find($eventID);
+        $event->delete();
+        return redirect()->back();
+    }
+
+    public function edit($eventID)
+    {
+
+
+        $event = Event::find($eventID);
+
+        if ($event->form_id == null) {
+            $inputs = null;
+            $form = null;
+        } else {
+            $form = Form::find($event->form_id);
+            $inputs = convertToArray($form->inputs);
+        }
+
+        return view('admin.events.edit', compact('event', 'inputs', 'form'));
+    }
+
+    public function setForm($eventID)
+    {
+        $forms = Form::all();
+        return view('admin.events.setForm', compact('forms', 'eventID'));
+    }
+
+    public function setFormExe(Request $request)
+    {
+        $event = Event::find($request->input('eventID'));
+        $event->form_id = $request->input('formID');
+        $event->save();
+        $route = '/dogodek/' . $event->id;
+        return redirect($route);
+    }
+
+    public function single($eventID)
+    {
+        $event = Event::find($eventID);
+        $form = Form::find($event->form_id);
+        $inputs = convertToArray($form->inputs);
+
+        $applications = Application::where('event_id',$event->id)->get();
+
+        return view('admin.events.single', compact('event', 'inputs', 'form','applications'));
     }
 }

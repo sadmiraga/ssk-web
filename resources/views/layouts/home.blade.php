@@ -20,6 +20,8 @@
 
     @yield('js')
 
+    @stack('js')
+
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -75,40 +77,39 @@
 
 
 
-                    <<li class="sidebar-menu-item">
+                    <li class="sidebar-menu-item">
                         <a href="/dogodki">
-                            <i class="far fa-calendar-alt sidebar-icon" style="color:white;"></i>
+                            <img src="{{ asset('images/icons/event.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Dogodki</span>
                         </a>
-                        </li>
+                    </li>
 
 
 
-                        <li class="sidebar-menu-item">
-                            <a href="/forme">
-                                <i class="far fa-file-alt"></i>
-                                <span class="sidebar-menu-item-text">Forme</span>
+                    <li class="sidebar-menu-item">
+                        <a href="/forme">
+                            <img src="{{ asset('images/icons/form.svg') }}" class="sidebar-img-icon">
+                            <span class="sidebar-menu-item-text">Forme</span>
 
-                            </a>
-                        </li>
-
-
-                        <li class="sidebar-menu-item">
-                            <a href="/zaposleni">
-                                <i class="fa fa-users sidebar-icon" style="color:white;"></i>
-                                <span class="sidebar-menu-item-text">Email-i</span>
-                            </a>
-                        </li>
+                        </a>
+                    </li>
 
 
+                    <li class="sidebar-menu-item">
+                        <a href="/zaposleni">
+                            <img src="{{ asset('images/icons/emails.svg') }}" class="sidebar-img-icon">
+                            <span class="sidebar-menu-item-text">Email-i</span>
+                        </a>
+                    </li>
 
-                        <li class="sidebar-menu-item">
-                            <a href="/odjava">
 
-                                <i class="fa fa-sign-out sidebar-icon" style="color:white;"></i>
-                                <span class="sidebar-menu-item-text">Odjava</span>
-                            </a>
-                        </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="/odjava">
+                            <img src="{{ asset('images/icons/logout.svg') }}" class="sidebar-img-icon">
+                            <span class="sidebar-menu-item-text">Odjava</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

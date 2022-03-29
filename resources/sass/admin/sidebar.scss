@@ -68,10 +68,11 @@ body {
 }
 .sidebar ul li a.active,
 .sidebar ul li a:hover {
-    border-radius: 10px;
-    background: transparent;
-    border-bottom: 1px solid #FFD900;
-    margin-left: 3px;
+    border-bottom: 1px solid white;
+}
+.sidebar ul li a.active,
+.sidebar ul li a{
+    border-bottom: 1px solid black;
 }
 .sidebar ul li span {
     margin-left: 16px;
@@ -185,8 +186,9 @@ body {
 }
 
 .sidebar-menu-item-text {
-    color: #FFD900;
+    color: white;
     font-weight: 500;
+    text-transform: uppercase;
 }
 
 .sidebar-menu-item-icon {
@@ -199,4 +201,11 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 7s linear;
+}
+
+
+.sidebar-img-icon{
+    background-color: white;
+    filter: invert(100%);
+    height: 3,5vh;
 }

@@ -1,0 +1,19 @@
+.apply-cover-image{
+    height: 25vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.event-apply-input{
+    background: transparent;
+    color: white;
+}
+
+
+.event-apply-input:focus{
+    color: white;
+    background: transparent;
+    border-color: #FFD900;
+    box-shadow: none;
+}

@@ -36,14 +36,9 @@ class FormsController extends Controller
 
     public function edit($formID)
     {
-
-
         $form = Form::find($formID);
         $fields = $form->inputs;
-
         $fields = convertToArray($fields);
-
-
         return view('admin.forms.edit', compact('formID', 'form', 'fields'));
     }
 
@@ -70,6 +65,13 @@ class FormsController extends Controller
         $form->inputs = $fields;
         $form->save();
 
+        return redirect()->back();
+    }
+
+    public function delete($formID)
+    {
+        $form = Form::find($formID);
+        $form->delete();
         return redirect()->back();
     }
 }

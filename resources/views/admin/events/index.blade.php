@@ -26,14 +26,19 @@
 
 
                         <div class="row button-row">
-                            <button class="btn custom-button">Već</button>
-                            <button class="btn custom-button">Uredi</button>
+                            <button class="btn custom-button" onclick="location.href='/dogodek/{{ $event->id }}'">
+                                Več
+                            </button>
+                            <button class="btn custom-button" onclick="location.href='/uredi-dogodek/{{ $event->id }}'">
+                                Uredi
+                            </button>
 
                         </div>
 
                         <div class="row button-row">
                             <button class="btn custom-button">Povezava</button>
-                            <button class="btn custom-button">Izbriši</button>
+                            <button onclick="location.href='izbrisi-dogodek/{{ $event->id }}'"
+                                class="btn custom-button">Izbriši</button>
                         </div>
 
                     </div>

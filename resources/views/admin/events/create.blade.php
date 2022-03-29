@@ -4,7 +4,13 @@
     {!! Form::open(['url' => '/dodaj-dogodek-exe', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
     @csrf
 
-    <div class="card">
+    <div class="card w-75 mx-auto mt-4">
+
+        <div class="card-header">
+            <div class="card-title">
+                DODAJ DOGODEK
+            </div>
+        </div>
         <div class="card-body">
 
             <div class="form-group">
@@ -42,8 +48,7 @@
             <div class="form-group">
                 <div class="form-row">
                     <label>Opis</label>
-                    <textarea class="form-control" rows="5" name="eventDescription"
-                        placeholder="Vpišite opis dogodka"></textarea>
+                    <textarea class="form-control" rows="5" name="eventDescription" placeholder="Vpišite opis dogodka"></textarea>
                 </div>
             </div>
 
