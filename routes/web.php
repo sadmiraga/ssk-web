@@ -19,7 +19,9 @@ Route::get('/dogodki', [App\Http\Controllers\EventsController::class, 'index'])-
 Route::get('/dodaj-dogodek', [App\Http\Controllers\EventsController::class, 'create'])->name('events.create');
 Route::post('/dodaj-dogodek-exe', [App\Http\Controllers\EventsController::class, 'store'])->name('events.store');
 Route::get('/izbrisi-dogodek/{eventID}', [App\Http\Controllers\EventsController::class, 'delete'])->name('events.delete');
+
 Route::get('/uredi-dogodek/{eventID}', [App\Http\Controllers\EventsController::class, 'edit'])->name('events.edit');
+Route::post('/uredi-dogodek', [App\Http\Controllers\EventsController::class, 'storeEdit'])->name('events.edit.store');
 
 Route::get('/dogodek/{eventID}', [App\Http\Controllers\EventsController::class, 'single'])->name('events.single');
 
@@ -27,6 +29,8 @@ Route::get('/dogodek/{eventID}', [App\Http\Controllers\EventsController::class, 
 
 Route::get('/doloci-formo/{eventID}', [App\Http\Controllers\EventsController::class, 'setForm'])->name('events.setForm');
 Route::post('/setFormExe', [App\Http\Controllers\EventsController::class, 'setFormExe'])->name('events.setFormExe');
+
+Route::get('/narocniki', [App\Http\Controllers\SubscribersController::class, 'index'])->name('subscribers.index');
 
 Route::get('/forme', [App\Http\Controllers\FormsController::class, 'index'])->name('forms.index');
 Route::get('/dodaj-formo', [App\Http\Controllers\FormsController::class, 'create'])->name('forms.create');

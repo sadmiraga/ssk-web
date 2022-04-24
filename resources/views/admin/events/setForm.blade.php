@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="events-header mb-3">
+        <a href="{{ route('events.index') }}">
+            <button class="btn btn-secondary" style="margin-right:1rem;">Preskoci izbiro forme</button>
+        </a>
         <button type="submit" class="btn btn-success" onclick="save();">
             <span>Shrani izbiro</span>
             <i class="fa fa-check"></i>
@@ -16,7 +19,6 @@
     </form>
 
     <div class="container w-100 x-auto" style="justify-content: space-evenly;">
-
         @foreach ($forms as $form)
             <div class="card form-card" id="form-{{ $form->id }}-card" style="width: 30%;">
                 <div class="card-header">
@@ -32,29 +34,18 @@
                 </ul>
             </div>
         @endforeach
-
-
-
-
-
     </div>
 @endsection
 
 @push('js')
     <script>
         function save() {
-
             formID = document.getElementById("formID").value;
-
             if (formID != 0) {
                 document.getElementById("setForm").submit();
             } else {
                 alert('Izberite formo');
             }
-
-
-
-
         }
 
         function chooseForm(formID) {

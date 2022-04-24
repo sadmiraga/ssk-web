@@ -96,9 +96,9 @@
 
 
                     <li class="sidebar-menu-item">
-                        <a href="/zaposleni">
+                        <a href="/narocniki">
                             <img src="{{ asset('images/icons/emails.svg') }}" class="sidebar-img-icon">
-                            <span class="sidebar-menu-item-text">Email-i</span>
+                            <span class="sidebar-menu-item-text">Naročniki</span>
                         </a>
                     </li>
 

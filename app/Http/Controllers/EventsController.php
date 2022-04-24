@@ -74,8 +74,6 @@ class EventsController extends Controller
 
     public function edit($eventID)
     {
-
-
         $event = Event::find($eventID);
 
         if ($event->form_id == null) {
@@ -87,6 +85,47 @@ class EventsController extends Controller
         }
 
         return view('admin.events.edit', compact('event', 'inputs', 'form'));
+    }
+
+    public function storeEdit(Request $request)
+    {
+        $request->validate([
+            'eventName' => 'required',
+            'eventDate' => 'required',
+            'eventTime' => 'required',
+            'eventLocation' => 'required',
+            'eventDescription' => 'required',
+            'eventID' => 'required'
+        ]);
+
+        $event = Event::find($request->input('eventID'));
+        $event->name = $request->input('eventName');
+        $event->date = $request->input('eventDate');
+        $event->time = $request->input('eventTime');
+        $event->location = $request->input('eventLocation');
+        $event->description = $request->input('eventDescription');
+
+        $ticketCheckbox = $request->input('ticketCheckbox');
+        if ($ticketCheckbox != null) {
+            $event->ticket = $request->input('ticketPrice');
+        }
+
+        $image = $request->file('eventPicture');
+
+        if ($image != null) {
+            $var = date_create();
+            $time = date_format($var, 'YmdHis');
+            $imageName = $time . '-' . $request->input('eventName') . $image->getClientOriginalName();
+
+            $event->picture = $imageName;
+
+            //move image
+            $image->move(public_path('images/events'), $imageName);
+        }
+
+        $event->save();
+
+        return redirect()->route('events.single', $event->id);
     }
 
     public function setForm($eventID)
@@ -108,10 +147,17 @@ class EventsController extends Controller
     {
         $event = Event::find($eventID);
         $form = Form::find($event->form_id);
-        $inputs = convertToArray($form->inputs);
 
-        $applications = Application::where('event_id',$event->id)->get();
+        if ($form != null) {
+            $inputs = convertToArray($form->inputs);
+        } else {
+            $form = null;
+            $inputs = null;
+        }
 
-        return view('admin.events.single', compact('event', 'inputs', 'form','applications'));
+
+        $applications = Application::where('event_id', $event->id)->get();
+
+        return view('admin.events.single', compact('event', 'inputs', 'form', 'applications'));
     }
 }

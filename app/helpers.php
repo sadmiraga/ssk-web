@@ -1,5 +1,17 @@
 <?php
 
+use App\Models\Application;
+
+function getEventName($email)
+{
+
+    //dd($email);
+    $application = Application::where('inputs', 'LIKE', '%siwyhore@mailinator.com%')->get();
+    dd($application);
+    //$event = \App\Models\Event::find($eventID);
+    return $event->name;
+}
+
 function convertToArray($fields)
 {
     $finalFields = [];

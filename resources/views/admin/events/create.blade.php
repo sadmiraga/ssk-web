@@ -13,53 +13,38 @@
         </div>
         <div class="card-body">
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Naslov dogodka</label>
-                    <input class="form-control" name="eventName" required placeholder="Vnesite ime dogodka">
-                </div>
+            <div class="form-group mb-4">
+                <input class="form-control" name="eventName" required placeholder="Vnesite ime dogodka">
+                <small id="emailHelp" class="form-text text-muted">Ime dogodka</small>
             </div>
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Datum dogodka</label>
-                    <input name="eventDate" required class="form-control" type="date">
-                </div>
+            <div class="form-group mb-4">
+                <input name="eventDate" required class="form-control" type="date">
+                <small id="emailHelp" class="form-text text-muted">Datum dogodka</small>
             </div>
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Čas dogodka</label>
-                    <input name="eventTime" required class="form-control" type="time">
-                </div>
+            <div class="form-group mb-4">
+                <input name="eventTime" required class="form-control" type="time">
+                <small id="emailHelp" class="form-text text-muted">Čas dogodka</small>
             </div>
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Lokacija dogodka</label>
-                    <input type="text" name="eventLocation" required class="form-control"
-                        placeholder="Vnesite lokacijo dogodka">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
-                    </div>
-                </div>
+            <div class="form-group mb-4">
+                <input type="text" name="eventLocation" required class="form-control"
+                    placeholder="Vnesite lokacijo dogodka">
+                <small id="emailHelp" class="form-text text-muted">Lokacija</small>
             </div>
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Opis</label>
-                    <textarea class="form-control" rows="5" name="eventDescription" placeholder="Vpišite opis dogodka"></textarea>
-                </div>
+            <div class="form-group mb-4">
+                <textarea class="form-control" rows="5" name="eventDescription" placeholder="Vpišite opis dogodka"></textarea>
+                <small id="emailHelp" class="form-text text-muted">Opis dogodka</small>
             </div>
 
-            <div class="form-group">
-                <div class="form-row">
-                    <label>Slika</label>
-                    <input id="file-upload" required type="file" name="eventPicture" />
-                </div>
+            <div class="form-group mb-4">
+                <label>Slika</label>
+                <input id="file-upload" required type="file" name="eventPicture" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <div class="form-row">
                     <label>Vstopnina</label>
                     <input style="width: fit-content !important;" type="checkbox" checked id="weightableCheckbox"
@@ -67,18 +52,11 @@
                 </div>
             </div>
 
-
-            <div class="form-group" id="drink-packing-weight-div">
-                <div class="form-row">
-                    <label>Cena</label>
-                    <input type="number" name="ticketPrice" id="packingWeight" class="form-control"
-                        placeholder="Vnesite ceno vstopnine">
-                </div>
+            <div class="form-group mb-4" id="drink-packing-weight-div">
+                <input type="number" name="ticketPrice" id="packingWeight" class="form-control"
+                    placeholder="Vnesite ceno vstopnine">
+                <small id="emailHelp" class="form-text text-muted">Cena vstopnine</small>
             </div>
-
-
-
-
 
             <!-- SUBMIT -->
             <div class="form-group d-flex justify-content-center">
@@ -88,3 +66,21 @@
         {!! Form::close() !!}
     </div>
 @endsection
+
+
+@push('js')
+    <script>
+        function enableWeight() {
+            weightableCheckbox = document.getElementById("weightableCheckbox");
+            packingWeight = document.getElementById("packingWeight");
+
+            if (weightableCheckbox.checked == true) {
+                weightableCheckboxContainer = document.getElementById("drink-packing-weight-div").style.display = "block";
+                packingWeight.required = true;
+            } else {
+                weightableCheckboxContainer = document.getElementById("drink-packing-weight-div").style.display = "none";
+                packingWeight.required = false;
+            }
+        }
+    </script>
+@endpush

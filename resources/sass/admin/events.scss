@@ -85,3 +85,21 @@
 .add-button:hover{
     color: #FFD900 !important;
 }
+
+.event-info-row span{
+    width: fit-content;
+}
+
+.event-info-row{
+    justify-content: space-around;
+}
+
+.card-title-text{
+    text-transform: uppercase;
+}
+
+.custom-card-title{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
