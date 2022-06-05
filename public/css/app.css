@@ -11798,3 +11798,16 @@ body {
     text-align: center;
   }
 }
+#login-button {
+  background-color: white;
+  color: #0000EE;
+}
+
+#register-redirect a {
+  color: #0000EE;
+}
+
+/* change focus color */
+.form-control:focus {
+  border-color: #0000EE;
+}

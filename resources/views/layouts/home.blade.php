@@ -99,7 +99,7 @@
                     </li>
 
                     <li class="sidebar-menu-item">
-                        <a href="/forme">
+                        <a href="{{ route('employees.index') }}">
                             <img src="{{ asset('images/icons/employees.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Zaposleni</span>
                         </a>

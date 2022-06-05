@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstName');
-            $table->string('lastName');
+            $table->string('firstName')->default('Ime');
+            $table->string('lastName')->default('priimek');
             $table->double('hour_rate')->nullable();
 
 

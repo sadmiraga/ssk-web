@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+//ZAPOSLENI
+Route::get('/zaposleni', [App\Http\Controllers\UsersController::class, 'index'])->name('employees.index');
+
 
 //DOGODKI
 Route::get('/dogodki/{status}', [App\Http\Controllers\EventsController::class, 'index'])->name('events.index');
@@ -59,5 +63,5 @@ Route::post('/prijava', [App\Http\Controllers\GuestController::class, 'saveApply
 
 
 
-Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
