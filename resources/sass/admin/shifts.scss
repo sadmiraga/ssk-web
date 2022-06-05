@@ -1,0 +1,91 @@
+.excel-icon{
+    max-height: 2rem;
+    max-width: 2rem;
+}
+
+
+.excel-container{
+    border: 1px solid #AAAAAA;
+    border-radius: 5px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    min-width: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 20% !important;
+    max-width: fit-content;
+}
+
+.excel-container:hover{
+    cursor:pointer;
+    background-color: #e0e0e0;
+}
+
+
+.excel-month-name{
+    margin-bottom: 0px !important;
+    font-size: 135%;
+    font-weight: 500;
+    margin-left:5px;
+}
+
+
+.excel-wrapper{
+    justify-content: space-around;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+
+.month-info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    align-items: center;
+}
+
+
+.salary-info{
+    width:100%;
+    margin-top: 1rem;
+}
+
+.salary-cell{
+    text-align: center;
+}
+
+
+@media only screen and (max-width:450px){
+
+    .salary-info{
+        flex-direction: column;
+    }
+
+    .salary-cell{
+        margin-bottom: 5px;
+    }
+
+    .excel-wrapper{
+        flex-direction: column;
+    }
+
+    .excel-container{
+        max-width: 100% !important;
+        min-width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-bottom: 5%;
+    }
+
+}
+
+.downloadable{
+    background-color: lightgray;
+}

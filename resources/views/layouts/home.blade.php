@@ -106,14 +106,11 @@
                     </li>
 
                     <li class="sidebar-menu-item">
-                        <a href="/forme">
+                        <a href="{{ route('hours.myhours') }}">
                             <img src="{{ asset('images/icons/hours.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Moje Ure</span>
                         </a>
                     </li>
-
-
-
 
                     <li class="sidebar-menu-item">
                         <a href="{{ route('functions.logout') }}">

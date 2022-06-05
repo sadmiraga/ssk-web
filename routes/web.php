@@ -22,6 +22,12 @@ Route::get('/zaposleni', [App\Http\Controllers\UsersController::class, 'index'])
 Route::get('/uredi-zaposlenega/{user_id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('employees.edit');
 Route::post('/uredi-zaposlenega', [App\Http\Controllers\UsersController::class, 'update'])->name('employees.update');
 
+//URE
+Route::get('/ure', [App\Http\Controllers\ShiftsController::class, 'myShifts'])->name('hours.myhours');
+Route::get('/dodaj-uro', [App\Http\Controllers\ShiftsController::class, 'newShift'])->name('hours.add');
+Route::post('/dodaj-ure-store', [App\Http\Controllers\ShiftsController::class, 'storeShift']);
+Route::get('/prenesi-moje-ure/{yearMonth}', [App\Http\Controllers\ShiftsController::class, 'downloadMyHours']);
+
 
 //DOGODKI
 Route::get('/dogodki/{status}', [App\Http\Controllers\EventsController::class, 'index'])->name('events.index');

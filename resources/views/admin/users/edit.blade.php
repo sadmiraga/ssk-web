@@ -29,7 +29,7 @@
             <div class="form-group mb-4 row">
                 <label for="hour_rate" class="col-sm-4 col-form-label">Urna Postavka</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="nubmer" required id="hour_rate" name="hour_rate"
+                    <input type="number" step="0.1" class="form-control" required id="hour_rate" name="hour_rate"
                         value="{{ $user->hour_rate }}">
                 </div>
             </div>
