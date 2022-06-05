@@ -1,14 +1,33 @@
 <?php
 
 use App\Models\Application;
+use App\Models\Event;
+
+
+function cutDescription($description)
+{
+    $data = substr($description, -100);
+    $data = $data . ' ...';
+    return $data;
+}
+
+function numberOfApplications($eventID)
+{
+    $event = Event::find($eventID);
+
+    if ($event->form_id == null) {
+        return 'Ni določene forme za prijavo';
+    } else {
+        $applications = Application::where('form_id', $event->form_id)->where('event_id', $event->id)->get();
+        $message =  'Prijavljenih: ' . count($applications);
+        return $message;
+    }
+}
 
 function getEventName($email)
 {
-
-    //dd($email);
-    $application = Application::where('inputs', 'LIKE', '%siwyhore@mailinator.com%')->get();
-    dd($application);
-    //$event = \App\Models\Event::find($eventID);
+    $application = Application::where('inputs', 'LIKE', '%' . $email . '%')->get();
+    $event = Event::find($application[0]->event_id);
     return $event->name;
 }
 

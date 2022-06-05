@@ -14,14 +14,23 @@ class GuestController extends Controller
     public function index()
     {
         $events = Event::all();
+
         return view('guest.index', compact('events'));
     }
 
     public function apply($eventID)
     {
         $event = Event::find($eventID);
-        $form = Form::find($event->form_id);
-        $inputs = convertToArray($form->inputs);
+
+        if ($event->form_id != null) {
+            $form = Form::find($event->form_id);
+            $inputs = convertToArray($form->inputs);
+        } else {
+            $form = null;
+            $inputs = null;
+        }
+
+
         return view('guest.apply', compact('event', 'inputs', 'event', 'form'));
     }
 

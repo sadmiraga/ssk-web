@@ -20,7 +20,8 @@ class CreateEventsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('location');
-            $table->integer('ticket')->default(0);
+            $table->integer('ticketPrice')->nullable();
+            $table->integer('specialTicketPrice')->nullable();
             $table->text('description');
             $table->string('picture');
 

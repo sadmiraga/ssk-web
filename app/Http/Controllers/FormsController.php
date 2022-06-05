@@ -16,6 +16,14 @@ class FormsController extends Controller
         return view('admin.forms.index', compact('forms'));
     }
 
+    public function previewForm($form_id)
+    {
+        $form = Form::find($form_id);
+        $inputs = convertToArray($form->inputs);
+
+        return view('admin.forms.previewForm', compact('form', 'inputs'));
+    }
+
     public function create()
     {
         return view('admin.forms.create');

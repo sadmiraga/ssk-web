@@ -32,8 +32,6 @@ class EventsController extends Controller
             'eventPicture' => 'required'
         ]);
 
-
-
         $event = new Event();
         $event->name = $request->input('eventName');
         $event->date = $request->input('eventDate');
@@ -44,7 +42,8 @@ class EventsController extends Controller
         $ticketCheckbox = $request->input('ticketCheckbox');
 
         if ($ticketCheckbox != null) {
-            $event->ticket = $request->input('ticketPrice');
+            $event->ticketPrice = $request->input('ticketPrice');
+            $event->specialTicketPrice = $request->input('specialTicketPrice');
         }
 
         //get image from form
@@ -107,7 +106,11 @@ class EventsController extends Controller
 
         $ticketCheckbox = $request->input('ticketCheckbox');
         if ($ticketCheckbox != null) {
-            $event->ticket = $request->input('ticketPrice');
+            $event->ticketPrice = $request->input('ticketPrice');
+            $event->specialTicketPrice = $request->input('specialTicketPrice');
+        } else {
+            $event->ticketPrice = null;
+            $event->specialTicketPrice = null;
         }
 
         $image = $request->file('eventPicture');
