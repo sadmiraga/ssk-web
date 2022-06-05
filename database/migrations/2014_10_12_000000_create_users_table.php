@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('firstName')->default('Ime');
             $table->string('lastName')->default('priimek');
-            $table->double('hour_rate')->nullable();
+            $table->double('hour_rate')->default(5.21);
 
 
             $table->string('email')->unique();

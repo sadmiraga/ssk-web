@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+
+Route::get('/odjava', [App\Http\Controllers\basicController::class, 'odjava'])->name('functions.logout');
+
 //ZAPOSLENI
 Route::get('/zaposleni', [App\Http\Controllers\UsersController::class, 'index'])->name('employees.index');
+Route::get('/uredi-zaposlenega/{user_id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('employees.edit');
+Route::post('/uredi-zaposlenega', [App\Http\Controllers\UsersController::class, 'update'])->name('employees.update');
 
 
 //DOGODKI

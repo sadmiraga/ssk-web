@@ -116,7 +116,7 @@
 
 
                     <li class="sidebar-menu-item">
-                        <a href="/odjava">
+                        <a href="{{ route('functions.logout') }}">
                             <img src="{{ asset('images/icons/logout.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Odjava</span>
                         </a>
