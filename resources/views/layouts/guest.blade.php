@@ -20,6 +20,7 @@
 
     @yield('js')
 
+
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -47,17 +48,18 @@
 
     <div class="container" style="width: 100%;">
 
-        <nav class="navbar navbar-dark bg-dark public-navbar" style="background-color:black !important;">
+        <nav class="navbar navbar-dark bg-dark public-navbar" style="background-color:black !important">
             <!-- Navbar content -->
             <div class="nav-container">
-                <img src="/images/logos/logo.png" class="public-logo" width="50%">
+                <a href="{{ route('index') }}">
+                    <img src="/images/logos/logo.png" class="public-logo" width="50%">
+                </a>
             </div>
         </nav>
 
         <div class="main">
-            <div class="page-content"
-                style="background-color:black;padding-top: 5rem;display:flex;flex-direction:column;">
-                @yield("content")
+            <div class="page-content" style="background-color:black;display:flex;flex-direction:column;">
+                @yield('content')
             </div>
         </div>
     </div>

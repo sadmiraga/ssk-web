@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="events-header mb-3">
-        <a href="{{ route('events.index') }}">
+        <a href="{{ route('events.index', 'prihajajoce') }}">
             <button class="btn btn-secondary" style="margin-right:1rem;">Preskoci izbiro forme</button>
         </a>
         <button type="submit" class="btn btn-success" onclick="save();">
@@ -20,7 +20,7 @@
 
     <div class="container w-100 x-auto" style="justify-content: space-evenly;">
         @foreach ($forms as $form)
-            <div class="card form-card" id="form-{{ $form->id }}-card" style="width: 30%;">
+            <div class="card form-card mb-4" id="form-{{ $form->id }}-card" style="width: 20%;">
                 <div class="card-header">
                     <div class="card-title">
                         {{ $form->name }}
@@ -28,7 +28,11 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" style="display:flex;">
-                        <div class="btn btn-warning btn-sm w-50" onclick="showForm();">POGLEJ</div>
+
+                        <a target="_blank" class="w-50" href="{{ route('forms.preview', $form->id) }}">
+                            <div class="btn btn-warning btn-sm w-100">POGLEJ</div>
+                        </a>
+
                         <div class="btn btn-success btn-sm w-50" onclick="chooseForm({{ $form->id }});">IZBERI</div>
                     </li>
                 </ul>

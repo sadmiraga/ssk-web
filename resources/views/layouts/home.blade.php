@@ -78,22 +78,18 @@
 
 
                     <li class="sidebar-menu-item">
-                        <a href="/dogodki">
+                        <a href="/dogodki/prihajajoce">
                             <img src="{{ asset('images/icons/event.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Dogodki</span>
                         </a>
                     </li>
 
-
-
                     <li class="sidebar-menu-item">
                         <a href="/forme">
                             <img src="{{ asset('images/icons/form.svg') }}" class="sidebar-img-icon">
                             <span class="sidebar-menu-item-text">Forme</span>
-
                         </a>
                     </li>
-
 
                     <li class="sidebar-menu-item">
                         <a href="/narocniki">
@@ -101,6 +97,21 @@
                             <span class="sidebar-menu-item-text">Naročniki</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="/forme">
+                            <img src="{{ asset('images/icons/employees.svg') }}" class="sidebar-img-icon">
+                            <span class="sidebar-menu-item-text">Zaposleni</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="/forme">
+                            <img src="{{ asset('images/icons/hours.svg') }}" class="sidebar-img-icon">
+                            <span class="sidebar-menu-item-text">Moje Ure</span>
+                        </a>
+                    </li>
+
 
 
 
@@ -114,7 +125,7 @@
                 </ul>
             </div>
             <div class="page-content">
-                @yield("content")
+                @yield('content')
             </div>
         </div>
     </div>

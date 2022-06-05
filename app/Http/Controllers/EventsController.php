@@ -13,10 +13,17 @@ class EventsController extends Controller
 {
 
     //INDEX
-    public function index()
+    public function index($status)
     {
-        $events = Event::orderBy('date', 'desc')->get();
-        return view('admin.events.index', compact('events'));
+        $current_date = date('Y-m-d');
+
+        if ($status == 'prihajajoce') {
+            $events = Event::orderBy('date', 'asc')->where('date', '>', $current_date)->get();
+        } else {
+            $events = Event::orderBy('date', 'desc')->where('date', '<', $current_date)->get();
+        }
+
+        return view('admin.events.index', compact('events', 'status'));
     }
 
     //CREATE

@@ -14,7 +14,6 @@ class GuestController extends Controller
     public function index()
     {
         $events = Event::all();
-
         return view('guest.index', compact('events'));
     }
 

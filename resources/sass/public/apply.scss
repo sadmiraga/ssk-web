@@ -17,3 +17,35 @@
     border-color: #FFD900;
     box-shadow: none;
 }
+
+.apply-font-container {
+    width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+    .apply-form-container {
+        width: 30% !important;
+        margin-left:35%;
+        margin-right:35%;
+    }
+
+    .event-info{
+        width:60% !important;
+        margin-left:20%;
+        margin-right:20%;
+    }
+
+    .event-row-info{
+        justify-content:center !important;
+    }
+
+    .apply-cover-image{
+        height:45vh;
+    }
+
+    .event-row-info span{
+        width: 50% !important;
+        text-align: center;
+    }
+
+}

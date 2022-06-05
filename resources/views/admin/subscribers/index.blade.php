@@ -15,7 +15,14 @@
                 <tr>
                     <td>{{ $subscriber }}</td>
                     <td>{{ getEventName($subscriber) }}</td>
-                    <td class="d-flex justify-content-end"><button class="btn btn-outline-secondary">Zgodovina prijav</button>
+                    <td class="d-flex justify-content-end">
+                        <a href="{{ route('subscribers.applicationHistory', $subscriber) }}">
+                            <button class="btn btn-outline-secondary">Zgodovina prijav</button>
+                        </a>
+
+                        <a href="{{ route('subscribers.delete', $subscriber) }}">
+                            <button class="btn btn-outline-secondary">Izbrisi</button>
+                        </a>
                     </td>
                 </tr>
             @endforeach

@@ -11361,13 +11361,12 @@ body {
 }
 
 .sidebar ul li a.active,
-.sidebar ul li a:hover {
-  border-bottom: 1px solid white;
-}
-
-.sidebar ul li a.active,
 .sidebar ul li a {
   border-bottom: 1px solid black;
+}
+
+.sidebar-menu-item a:hover .sidebar-menu-item-text {
+  color: lightgray;
 }
 
 .sidebar ul li span {
@@ -11507,7 +11506,6 @@ body {
 .sidebar-menu-item-text {
   color: white;
   font-weight: 500;
-  text-transform: uppercase;
 }
 
 .sidebar-menu-item-icon {
@@ -11523,7 +11521,7 @@ body {
 .sidebar-img-icon {
   background-color: white;
   filter: invert(100%);
-  height: 3.5vh;
+  height: 2.5vh;
 }
 
 .add-new-event {
@@ -11632,6 +11630,10 @@ body {
   align-items: center;
 }
 
+.form-event-card, .admin-event-card {
+  width: 45%;
+}
+
 .form-row {
   display: flex;
   flex-direction: row;
@@ -11643,6 +11645,14 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.no-style-link {
+  text-decoration: none;
+}
+
+.right-text {
+  text-align: right !important;
 }
 
 @media (max-width: 576px) {
@@ -11728,8 +11738,9 @@ body {
   width: 40%;
   margin-left: 30%;
   margin-right: 30%;
-  padding-top: 5px !important;
+  padding-top: 0px !important;
   padding-bottom: 0px !important;
+  margin-top: 1vh !important;
 }
 
 .prijava-button:hover {
@@ -11755,4 +11766,35 @@ body {
   background: transparent;
   border-color: #FFD900;
   box-shadow: none;
+}
+
+.apply-font-container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .apply-form-container {
+    width: 30% !important;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
+  .event-info {
+    width: 60% !important;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .event-row-info {
+    justify-content: center !important;
+  }
+
+  .apply-cover-image {
+    height: 45vh;
+  }
+
+  .event-row-info span {
+    width: 50% !important;
+    text-align: center;
+  }
 }
