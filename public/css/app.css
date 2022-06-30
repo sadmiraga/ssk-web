@@ -11664,6 +11664,15 @@ a:hover {
   color: black;
 }
 
+.even {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list-group-flush {
+  padding: 20px;
+}
+
 @media (max-width: 576px) {
   .xs {
     color: red;
@@ -11705,6 +11714,15 @@ a:hover {
   justify-content: space-evenly;
   margin-bottom: 1vh;
   margin-top: 5vh;
+}
+
+.forms-card-index {
+  width: 30%;
+}
+
+.form-cards-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .public-navbar {

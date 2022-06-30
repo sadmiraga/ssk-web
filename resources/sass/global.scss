@@ -28,3 +28,12 @@ a{
 a:hover{
     color:black;
 }
+
+.even{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.list-group-flush{
+    padding:20px;
+}

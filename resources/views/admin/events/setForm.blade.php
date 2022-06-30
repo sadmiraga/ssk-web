@@ -18,9 +18,10 @@
         <input type="hidden" value="{{ $eventID }}" name="eventID">
     </form>
 
-    <div class="container w-100 x-auto" style="justify-content: space-evenly;">
+    <div class="container w-100 x-auto">
         @foreach ($forms as $form)
-            <div class="card form-card mb-4" id="form-{{ $form->id }}-card" style="width: 20%;">
+            <div class="card form-card mb-4" id="form-{{ $form->id }}-card"
+                style="width: 18%;margin-right:1%;margin-left:1%;">
                 <div class="card-header">
                     <div class="card-title">
                         {{ $form->name }}

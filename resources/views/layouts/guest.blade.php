@@ -20,6 +20,11 @@
 
     @yield('js')
 
+    <link rel="stylesheet" href="http://localhost/style.css?<?php echo time(); ?>" />
+
+    <link rel="stylesheet" href="http://localhost/style.css?1390846203" />
+
+
 
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

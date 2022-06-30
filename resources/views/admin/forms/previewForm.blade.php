@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('content')
-    <h5 class="display-5 text-center">{{ $form->name }}</h5>
+    <h5 class="display-7 text-center text-muted">{{ $form->name }}</h5>
 
     <div class="card-body w-50 x-auto" style="margin-left:25%;margin-right:25%;border:1px solid lightgray;">
         @foreach ($inputs as $input)
