@@ -2,6 +2,7 @@
 
 
 @section('content')
+    <x-alert-component />
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -10,6 +11,7 @@
                     <th scope="col">Ime</th>
                     <th scope="col">Priimek</th>
                     <th scope="col">Tip zaposlenega</th>
+                    <th scope="col">Urna postavka</th>
                     <th scope="col">#</th>
                 </tr>
             </thead>
@@ -20,6 +22,7 @@
                         <td>{{ $user->firstName }}</td>
                         <td>{{ $user->lastName }}</td>
                         <td>{{ $user->userType }}</td>
+                        <td>{{ $user->hour_rate . ' €' }}</td>
 
 
                         <td style="display:flex;flex-direction:row;">

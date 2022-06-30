@@ -18,6 +18,7 @@
     <script src="{{ asset('js/admin/alert.js') }}" defer></script>
     <script src="{{ asset('js/admin/topTop.js') }}" defer></script>
 
+
     @yield('js')
 
     @stack('js')
@@ -99,12 +100,16 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-menu-item">
-                        <a href="{{ route('employees.index') }}">
-                            <img src="{{ asset('images/icons/employees.svg') }}" class="sidebar-img-icon">
-                            <span class="sidebar-menu-item-text">Zaposleni</span>
-                        </a>
-                    </li>
+                    @auth
+                        @if (Auth::user()->type_id == 3)
+                            <li class="sidebar-menu-item">
+                                <a href="{{ route('employees.index') }}">
+                                    <img src="{{ asset('images/icons/employees.svg') }}" class="sidebar-img-icon">
+                                    <span class="sidebar-menu-item-text">Zaposleni</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endauth
 
                     <li class="sidebar-menu-item">
                         <a href="{{ route('hours.myhours') }}">

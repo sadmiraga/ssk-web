@@ -36,6 +36,8 @@ class GuestController extends Controller
     public function saveApply(Request $request)
     {
 
+
+
         $application =  new Application();
         $application->form_id = $request->input('formID');
         $application->event_id = $request->input('eventID');
@@ -55,10 +57,12 @@ class GuestController extends Controller
 
 
             if ($input['type'] == 'email') {
-                $mail = new Email();
-                $mail->event_id = $request->input('eventID');
-                $mail->email = $chunk;
-                $mail->save();
+                if ($request->input('newsletter')) {
+                    $mail = new Email();
+                    $mail->event_id = $request->input('eventID');
+                    $mail->email = $chunk;
+                    $mail->save();
+                }
             }
         }
 

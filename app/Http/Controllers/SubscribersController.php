@@ -59,5 +59,7 @@ class SubscribersController extends Controller
         if (count($emails) == 0) {
             return redirect()->back()->with('message', 'Oznacite vsaj en email');
         }
+
+        dd($emails);
     }
 }

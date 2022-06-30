@@ -44,7 +44,9 @@ class FormsController extends Controller
 
     public function edit($formID)
     {
+
         $form = Form::find($formID);
+        //dd($form->inputs);
         $fields = $form->inputs;
         $fields = convertToArray($fields);
         return view('admin.forms.edit', compact('formID', 'form', 'fields'));
@@ -81,5 +83,29 @@ class FormsController extends Controller
         $form = Form::find($formID);
         $form->delete();
         return redirect()->back();
+    }
+
+
+    public function removeInput($form_id, $field_name)
+    {
+        $form = Form::find($form_id);
+        $inputs = $form->inputs;
+
+        $exploded = explode('[', $inputs);
+        $remove_first = array_shift($exploded);
+
+        $new_inputs = "";
+
+        foreach ($exploded as $row) {
+
+            if (!str_contains($row, $field_name)) {
+                $new_inputs =   $new_inputs . '[' . $row;
+            }
+        }
+
+        $form->inputs = $new_inputs;
+        $form->save();
+
+        return redirect()->route('forms.edit', $form->id);
     }
 }

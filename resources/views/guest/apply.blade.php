@@ -57,7 +57,13 @@
 
                         <input type="hidden" value="{{ $event->id }}" name="eventID">
                         <input type="hidden" value="{{ $form->id }}" name="formID">
-                        <input type="submit" value="PRIJAVA" class="btn btn-warning w-100">PRIJAVA</button>
+
+                        <input type="checkbox" name="newsletter" id="newsletter">
+                        <label style="color:#ffca2c;" for="newsletter">Zelim prejemati obvestila o prihajajocih
+                            dogodkih</label>
+
+
+                        <input type="submit" value="PRIJAVA" class="btn btn-warning w-100"></button>
 
                     </div>
                 </form>

@@ -30,6 +30,7 @@ class ShiftsController extends Controller
             $hoursCount = $hoursCount + $data->duration;
         }
 
+
         $salary = $hoursCount * $user->hour_rate;
         $months = $this->getMonths();
         return view('admin.shifts.index', compact('hours', 'months', 'currentMonth', 'hoursCount', 'salary', 'user'));
@@ -109,12 +110,13 @@ class ShiftsController extends Controller
     public function viewShifts($userID)
     {
         $hours = Hour::where('user_id', $userID)->orderBy('startDate', 'desc')->get();
+        $user = User::find($userID);
 
         if (count($hours) == 0) {
             return redirect()->back()->with('errorMessage', 'Izbrani zaposleni nima vnešenih ur');
         }
 
-        return view('admin.shifts.viewShifts', compact('hours', 'userID'));
+        return view('admin.shifts.viewShifts', compact('hours', 'userID', 'user'));
     }
 
     public function downloadExcel($userID, $yearMonth)
