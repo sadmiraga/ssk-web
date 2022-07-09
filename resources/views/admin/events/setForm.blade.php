@@ -1,5 +1,9 @@
 @extends('layouts.home')
 
+@section('admin-title')
+    Izberite obrazec za prijavo na dogodek
+@endsection
+
 @section('content')
     <div class="events-header mb-3">
         <a href="{{ route('events.index', 'prihajajoce') }}">

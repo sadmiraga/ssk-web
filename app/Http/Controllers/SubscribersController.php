@@ -8,14 +8,20 @@ use App\Models\Event;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
+
 class SubscribersController extends Controller
 {
+
+    //list all subscribers
     public function index()
     {
         $subscribers = Email::distinct('email')->pluck('email');
         return view('admin.subscribers.index', compact('subscribers'));
     }
 
+    //delete subscriber
     public function delete($email)
     {
         $subscriber = Email::where('email', $email)->delete();
@@ -23,6 +29,7 @@ class SubscribersController extends Controller
         return $email;
     }
 
+    //look at all events that subscriber applied
     public function applicationHistory($email)
     {
         $applications = Application::where('inputs', 'LIKE', '%' . $email . '%')->get();
@@ -34,6 +41,7 @@ class SubscribersController extends Controller
         return view('admin.subscribers.applicationHistory', compact(['events', 'email']));
     }
 
+    //invite subscriber on event
     public function inviteSubscriber($eventID)
     {
         $subscribers = Email::all();
@@ -43,6 +51,15 @@ class SubscribersController extends Controller
 
     public function sendInvitations(Request $request)
     {
+
+        $message = 'Halo kmeteviii';
+        Mail::to('sadmirvela@gmail.com')->send(new SendMailable($message));
+
+        return 'poslan email bebo';
+
+
+
+        /*
         $limit = $request->input('limit');
         $emails = [];
 
@@ -61,5 +78,7 @@ class SubscribersController extends Controller
         }
 
         dd($emails);
+
+        */
     }
 }
