@@ -13,8 +13,15 @@
                 <form action="{{ route('subscribers.send-email') }}" method="POST">
                     @csrf
 
+                    <input type="hidden" name="eventID" value="{{ $event->id }}">
+
+
                     <div class="form-group mb-4">
-                        <textarea placeholder="Invitation message" rows="10" class="form-control" name="message"></textarea>
+                        <input class="form-control" name="subject" required placeholder="Email Subject">
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <textarea placeholder="Invitation message" rows="10" class="form-control" required name="message"></textarea>
                     </div>
 
                     <input type="hidden" name="limit" value="{{ count($subscribers) }}">

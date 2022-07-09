@@ -10,17 +10,23 @@ use Illuminate\Queue\SerializesModels;
 class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
-    public $message;
+    public $invitationMessage;
+    public $eventName;
+    public $eventImage;
+    public $subject;
+
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $eventName, $eventImage, $subject)
     {
-        //
-        $this->message = $message;
+        $this->invitationMessage = $message;
+        $this->eventName = $eventName;
+        $this->eventImage = $eventImage;
+        $this->subject = $subject;
     }
 
     /**
@@ -30,6 +36,10 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.invitation');
+        //return $this->view('emails.invitation');
+
+        return $this->from('info@ssk.si')
+            ->subject($this->subject)
+            ->view('emails.invitation');
     }
 }

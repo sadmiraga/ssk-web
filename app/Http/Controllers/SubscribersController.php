@@ -52,19 +52,21 @@ class SubscribersController extends Controller
     public function sendInvitations(Request $request)
     {
 
-        $message = 'Halo kmeteviii';
-        Mail::to('sadmirvela@gmail.com')->send(new SendMailable($message));
+        $event = Event::find($request->input('eventID'));
+        $message = $request->input('message');
+        $subject = $request->input('subject');
 
-        return 'poslan email bebo';
+        $base =  "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+        $base = $this->strSplit($base, 3, '/');
+        $image = $base[0] . ':8000/images/events/' . $event->picture;
 
 
 
-        /*
+        //get all emails
         $limit = $request->input('limit');
         $emails = [];
 
         for ($i = 1; $i <= $limit; $i++) {
-
             $input_name = 'emails-' . $i;
             $checkbox = $request->input($input_name);
 
@@ -74,11 +76,31 @@ class SubscribersController extends Controller
         }
 
         if (count($emails) == 0) {
-            return redirect()->back()->with('message', 'Oznacite vsaj en email');
+            return redirect()->back()->with('message', 'Oznacite vsaj eden elektronski naslov');
         }
 
-        dd($emails);
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new SendMailable($message, $event->name, $image, $subject));
+        }
 
-        */
+        return 'success';
+    }
+
+
+    private function strSplit($source, $index, $delim)
+    {
+        $outStr[0] = $source;
+        $outStr[1] = '';
+
+        $partials = explode($delim, $source);
+
+        if (isset($partials[$index]) && strlen($partials[$index]) > 0) {
+            $splitPos = strpos($source, $partials[$index]);
+
+            $outStr[0] = substr($source, 0, $splitPos - 1);
+            $outStr[1] = substr($source, $splitPos);
+        }
+
+        return $outStr;
     }
 }
