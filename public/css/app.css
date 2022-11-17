@@ -11746,9 +11746,7 @@ a:hover {
 
 .public-logo {
   width: 7rem;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
 }
 
 .event-image {
@@ -11833,6 +11831,15 @@ a:hover {
     text-align: center;
   }
 }
+.checkbox-form-group {
+  display: flex;
+  align-items: baseline;
+}
+
+.checkbox-form-group label {
+  margin-left: 0.5rem;
+}
+
 #login-button {
   background-color: white;
   color: #0000EE;

@@ -8,12 +8,17 @@ use App\Models\Event;
 use App\Models\Form;
 use App\Models\Application;
 use App\Models\Email;
+use Carbon\Carbon;
 
 class GuestController extends Controller
 {
-    public function index()
-    {
-        $events = Event::all();
+    public function index(){
+
+        
+        $date = date( "Y-d-m");
+    
+        $events = Event::where('date','>',$date)->get();
+
         return view('guest.index', compact('events'));
     }
 
@@ -36,25 +41,29 @@ class GuestController extends Controller
     public function saveApply(Request $request)
     {
 
-
+        
 
         $application =  new Application();
         $application->form_id = $request->input('formID');
         $application->event_id = $request->input('eventID');
 
         $form = Form::find($request->input('formID'));
+
         $inputs = convertToArray($form->inputs);
         $data = "";
 
         foreach ($inputs as $input) {
-            $chunk = $request->input($input['name']);
+
+            $input_index =  preg_replace('/\s+/', '_', $input);
+
+            $chunk = $request->input($input_index['name']);
+            
 
             if ($data != "") {
                 $data = $data . ',' . $chunk;
             } else {
                 $data = $chunk;
             }
-
 
             if ($input['type'] == 'email') {
                 if ($request->input('newsletter')) {

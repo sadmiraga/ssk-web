@@ -8,7 +8,8 @@
     </div>
 
     <div class="w-100 event-info">
-        <h1 class="text-white text-center">{{ $event->name }}</h4>
+
+            <h1 class="mt-4 mb-3 text-white text-center">{{ $event->name }}</h1>
 
             <p class="row d-flex justify-content-between event-row-info">
                 <span class="text-white w-auto ">Lokacija</span>
@@ -58,9 +59,13 @@
                         <input type="hidden" value="{{ $event->id }}" name="eventID">
                         <input type="hidden" value="{{ $form->id }}" name="formID">
 
-                        <input type="checkbox" name="newsletter" id="newsletter">
-                        <label style="color:#ffca2c;" for="newsletter">Zelim prejemati obvestila o prihajajocih
-                            dogodkih</label>
+                        <div class="form-group mb-3 checkbox-form-group">
+                            <input type="checkbox" name="newsletter" id="newsletter">
+                            <label style="color:#ffca2c;" for="newsletter">
+                                Zelim prejemati obvestila o prihajajocih dogodkih
+                            </label>
+                        </div>
+
 
 
                         <input type="submit" value="PRIJAVA" class="btn btn-warning w-100"></button>

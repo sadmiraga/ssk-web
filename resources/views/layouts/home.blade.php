@@ -89,7 +89,7 @@
                     <li class="sidebar-menu-item">
                         <a href="/forme">
                             <img src="{{ asset('images/icons/form.svg') }}" class="sidebar-img-icon">
-                            <span class="sidebar-menu-item-text">Forme</span>
+                            <span class="sidebar-menu-item-text">Obrazci</span>
                         </a>
                     </li>
 
